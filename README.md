@@ -2,10 +2,13 @@ Little Muslims' Stories
 
 Listen (and maybe read along) to bedtime stories for kids! 
 
-- Listen to original stories
-- Bi-lingual stories teach Arabic (or English)
+- No internet required
 - Moral and ethical stories instil solid character values
+- Bi-lingual stories teach Arabic (or English)
+
+TODO:
+- Listen to original stories
 - Immersive background audio makes kids feel like they're there
-- And more!
+
 
 **Note:** The `gh-pages` branch contains production code (audio).

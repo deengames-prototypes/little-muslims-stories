@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxG;
 import helix.core.HelixSprite;
 using helix.core.HelixSpriteFluentApi;
 import helix.core.HelixState;
@@ -14,13 +15,14 @@ class MenuState extends HelixState
 
     override public function create():Void
     {
+        super.create();
         var stories:Array<String> = cast(Config.get("stories"));
         var storyNumber = 0;
 
         for (storyName in stories) {
             // assumption: story name is a slug
             var button:HelixSprite;
-            var storyImageName = 'assets/images/stories/${storyName}.png';
+            var storyImageName = 'assets/images/stories/${storyName}-small.png';
             if (Assets.exists(storyImageName)) {
                 button = new HelixSprite(storyImageName);
             } else {
@@ -34,15 +36,10 @@ class MenuState extends HelixState
             button.y = (yIntVal * button.height) + (PADDING * (yIntVal + 1));
 
             button.onClick(function() {
-                this.playStoryAudio(storyName);
+                FlxG.switchState(new PlayState(storyName));
             });
 
             storyNumber++;
         }
-    }
-
-    private function playStoryAudio(storyName:String) {
-        var audioFileName = 'assets/audio/stories/${storyName}.ogg';
-        trace('Playing audio: ${audioFileName}');
     }
 }
