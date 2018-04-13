@@ -1,7 +1,7 @@
 package;
 
 import helix.core.HelixSprite;
-import helix.core.HelixSpriteFluentApi;
+using helix.core.HelixSpriteFluentApi;
 import helix.core.HelixState;
 import helix.data.Config;
 import openfl.Assets;
@@ -28,10 +28,21 @@ class MenuState extends HelixState
                 button = new HelixSprite('assets/images/stories/story-generic.jpg');
             }
             
-            button.x = (storyNumber % STORIES_PER_ROW) * (button.width + PADDING) + (PADDING * (storyNumber + 1));
-            button.y = ((storyNumber / STORIES_PER_COLUMN) * button.height) + (PADDING * (storyNumber + 1));
+            var xIntVal:Int = storyNumber % STORIES_PER_ROW;
+            var yIntVal:Int = Std.int(storyNumber / STORIES_PER_ROW);
+            button.x = (xIntVal) * (button.width + PADDING) + (PADDING * (xIntVal + 1));
+            button.y = (yIntVal * button.height) + (PADDING * (yIntVal + 1));
+
+            button.onClick(function() {
+                this.playStoryAudio(storyName);
+            });
 
             storyNumber++;
         }
+    }
+
+    private function playStoryAudio(storyName:String) {
+        var audioFileName = 'assets/audio/stories/${storyName}.ogg';
+        trace('Playing audio: ${audioFileName}');
     }
 }
