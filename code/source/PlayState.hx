@@ -1,8 +1,10 @@
 package;
 
-import flixel.FlxState;
+import helix.core.HelixSprite;
+import helix.core.HelixState;
+import helix.data.Config;
 
-class PlayState extends FlxState
+class PlayState extends HelixState
 {
 	override public function create():Void
 	{
