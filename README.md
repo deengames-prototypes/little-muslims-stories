@@ -1,4 +1,4 @@
-# Stories For Little Muslims
+Little Muslims' Stories
 
 Listen (and maybe read along) to bedtime stories for kids! 
 
